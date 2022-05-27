@@ -7,6 +7,10 @@
     "test": "exit 0",
     "build": "echo \"No build script setup\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adewaleadeoye/gatsby-notion-cms-plugin.git"
+  },
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -15,6 +19,10 @@
   ],
   "author": "Adewale Adeoye <whaale_ade@yahoo.com>",
   "license": "0BSD",
+  "bugs": {
+    "url": "https://github.com/adewaleadeoye/gatsby-notion-cms-plugin/issues"
+  },
+  "homepage": "https://github.com/adewaleadeoye/gatsby-notion-cms-plugin",
   "dependencies": {
     "axios": "^0.27.2",
     "notion-page-to-html": "^1.1.4"

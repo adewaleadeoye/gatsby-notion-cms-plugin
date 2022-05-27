@@ -1,7 +1,11 @@
 const axios = require('axios').default;
 const { URL } = require('url');
 
-const getNotionArticles = async (baseUrl, notion_secret, notion_database_id) => {
+const getNotionArticles = async (
+  baseUrl,
+  notion_secret,
+  notion_database_id
+) => {
   try {
     const resp = await axios({
       url: `${baseUrl}/databases/${notion_database_id}/query`,
@@ -29,10 +33,14 @@ const getNotionArticles = async (baseUrl, notion_secret, notion_database_id) => 
 
 exports.sourceNodes = async (
   { actions, createContentDigest, createNodeId },
-  { baseUrl, notion_secret, notion_database_id }
+  { baseUrl, notion_secret, notion_database_id, articleType }
 ) => {
-  const ARTICLE_TYPE = 'EukaPayNews';
-  const articles = await getNotionArticles(baseUrl, notion_secret, notion_database_id);
+  const ARTICLE_TYPE = articleType;
+  const articles = await getNotionArticles(
+    baseUrl,
+    notion_secret,
+    notion_database_id
+  );
   for (const article of articles) {
     actions.createNode({
       ...article,
