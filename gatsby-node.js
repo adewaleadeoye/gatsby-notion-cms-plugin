@@ -15,17 +15,20 @@ const getNotionArticles = async (
         'Notion-Version': '2022-02-22',
       },
     });
-
-    return resp.data?.results.map((result) => {
-      return {
-        id: result.id,
-        title: result.properties.Name.title[0].text.content,
-        excerpt: result.properties.Description.rich_text[0].text.content,
-        date: result.properties.Date.rich_text[0].text.content,
-        image: result.properties.Image.files[0].file.url,
-        url: new URL(result.url).pathname,
-      };
+    const articles = [];
+    resp.data?.results.forEach((result) => {
+      if (result.properties.Publish.checkbox) {
+        articles.push({
+          id: result.id,
+          title: result.properties.Name.title[0].text.content,
+          excerpt: result.properties.Description.rich_text[0].text.content,
+          date: result.properties.Date.rich_text[0].text.content,
+          image: result.properties.Image.files[0].file.url,
+          url: new URL(result.url).pathname,
+        });
+      }
     });
+    return articles.reverse();
   } catch (err) {
     console.error(err);
   }
