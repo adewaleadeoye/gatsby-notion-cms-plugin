@@ -1,16 +1,22 @@
 {
-  "name": "gatsby-starter-plugin",
+  "name": "gatsby-notion-cms-plugin",
   "version": "1.0.0",
-  "description": "A minimal boilerplate for the essential files Gatsby looks for in a plugin",
+  "description": "A gatsby plugin to pull specific content from notion database",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "exit 0",
     "build": "echo \"No build script setup\""
   },
   "keywords": [
     "gatsby",
-    "gatsby-plugin"
+    "gatsby-plugin",
+    "notion",
+    "cms"
   ],
-  "author": "Kyle Gill <kyle.robert.gill@gmail.com>",
-  "license": "0BSD"
+  "author": "Adewale Adeoye <whaale_ade@yahoo.com>",
+  "license": "0BSD",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "notion-page-to-html": "^1.1.4"
+  }
 }
