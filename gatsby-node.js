@@ -21,9 +21,10 @@ const getNotionArticles = async (
         articles.push({
           id: result.id,
           title: result.properties.Name.title[0].text.content,
-          excerpt: result.properties.Description.rich_text[0].text.content,
+          excerpt: result.properties.Excerpt.rich_text[0].text.content,
           date: result.properties.Date.rich_text[0].text.content,
           image: result.properties.Image.files[0].file.url,
+          slug: result.properties.Slug.rich_text[0].text.content,
           url: new URL(result.url).pathname,
         });
       }
